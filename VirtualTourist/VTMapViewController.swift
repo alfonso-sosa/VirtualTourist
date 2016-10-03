@@ -96,17 +96,13 @@ class VTMapViewController : UIViewController, MKMapViewDelegate {
     
     //Creates or reuses an MKMPinAnnotationView to display the information stored in an MKPointAnnotation
     func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
-        print("MapDelegate method being called")
-        print("Does have annotation")
         let identifier = "pinAnnotation"
         var view: MKPinAnnotationView
         if let dequeuedView = mapView.dequeueReusableAnnotationViewWithIdentifier(identifier)
             as? MKPinAnnotationView {
-            print("Dequed view")
             dequeuedView.annotation = annotation
             view = dequeuedView
         } else {
-            print("New view")
             view = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
             view.animatesDrop = true
             view.annotation = annotation
