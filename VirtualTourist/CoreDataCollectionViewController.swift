@@ -145,10 +145,6 @@ extension CoreDataCollectionViewController: NSFetchedResultsControllerDelegate {
             break
         
         }
-        
-        
-        
-        
     }
     
     //Stores the operations on items
@@ -159,46 +155,44 @@ extension CoreDataCollectionViewController: NSFetchedResultsControllerDelegate {
                                                               newIndexPath: NSIndexPath?) {
         
         switch(type){
-            
-        case .Insert:
-            blockOperations.append(
-                NSBlockOperation(block: { [weak self] in
-                    if let this = self {
-                        this.collectionView!.insertItemsAtIndexPaths([newIndexPath!])
-                        //Invalidate to force layout recalculation
-                        this.collectionView!.collectionViewLayout.invalidateLayout()
-                    }
-                    })
-            )
-            
-        case .Delete:
-            blockOperations.append(
-                NSBlockOperation(block: { [weak self] in
-                    if let this = self {
-                        this.collectionView!.deleteItemsAtIndexPaths([indexPath!])
-                    }
-                    })
-            )
-            
-        case .Update:
-            blockOperations.append(
-                NSBlockOperation(block: { [weak self] in
-                    if let this = self {
-                        this.collectionView!.reloadItemsAtIndexPaths([indexPath!])
-                    }
-                    })
-            )
-            
-        case .Move:
-            blockOperations.append(
-                NSBlockOperation(block: { [weak self] in
-                    if let this = self {
-                        this.collectionView!.moveItemAtIndexPath(indexPath!, toIndexPath: newIndexPath!)
-                    }
-                    })
-            )
-        }
-        
+            case .Insert:
+                blockOperations.append(
+                    NSBlockOperation(block: { [weak self] in
+                        if let this = self {
+                            this.collectionView!.insertItemsAtIndexPaths([newIndexPath!])
+                            //Invalidate to force layout recalculation
+                            this.collectionView!.collectionViewLayout.invalidateLayout()
+                        }
+                        })
+                )
+                
+            case .Delete:
+                blockOperations.append(
+                    NSBlockOperation(block: { [weak self] in
+                        if let this = self {
+                            this.collectionView!.deleteItemsAtIndexPaths([indexPath!])
+                        }
+                        })
+                )
+                
+            case .Update:
+                blockOperations.append(
+                    NSBlockOperation(block: { [weak self] in
+                        if let this = self {
+                            this.collectionView!.reloadItemsAtIndexPaths([indexPath!])
+                        }
+                        })
+                )
+                
+            case .Move:
+                blockOperations.append(
+                    NSBlockOperation(block: { [weak self] in
+                        if let this = self {
+                            this.collectionView!.moveItemAtIndexPath(indexPath!, toIndexPath: newIndexPath!)
+                        }
+                        })
+                )
+            }        
     }
     
     //Applies the soted operations
