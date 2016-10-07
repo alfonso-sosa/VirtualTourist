@@ -76,8 +76,6 @@ class VTMapViewController : UIViewController, MKMapViewDelegate {
         fetchedResultsController = NSFetchedResultsController(fetchRequest: fr, managedObjectContext: stack.context, sectionNameKeyPath: nil, cacheName: nil)
     }
     
-    
-    
     //Adds the pin to the mapview using the coordinates from the view.
     func addPinToMapView(recognizer: UILongPressGestureRecognizer){
         if recognizer.state == UIGestureRecognizerState.Began {
@@ -86,6 +84,8 @@ class VTMapViewController : UIViewController, MKMapViewDelegate {
             let delegate = UIApplication.sharedApplication().delegate as! AppDelegate
             
             let pin = Pin(latitude: coordinates.latitude, longitude: coordinates.longitude, context: delegate.stack.context)
+            
+            
             //Stores the pin, to make it available to other contexts
             delegate.stack.saveContext()
             dispatch_async(dispatch_get_main_queue(), {

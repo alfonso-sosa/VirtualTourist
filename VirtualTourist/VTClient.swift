@@ -224,18 +224,28 @@ extension VTClient {
         }
     }
     
+    
+    
     //Gets the photo for the specified url string.
     //Gives it back to the caller as NSData in the completion handler
     func getImageFromFlickr(urlString url: String, completionHandler handler: (imageData: NSData) -> Void){
-        //Download in background queue, so it doesn't block UI
-        dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0)){
-            () -> Void in
+        //Fixed comment: Download in background queue, so it doesn't block UI, but only if called from the main queue
+        if (NSThread.isMainThread()){
+            dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0)){
+                () -> Void in
+                if let url = NSURL(string: url) {
+                    let imageData = NSData(contentsOfURL: url)
+                    //Runs completion handler in the main queue, so the caller can modify Views
+                    dispatch_async(dispatch_get_main_queue(), {
+                        handler(imageData: imageData!)
+                    })
+                }
+            }
+        }
+        else {
             if let url = NSURL(string: url) {
                 let imageData = NSData(contentsOfURL: url)
-                //Runs completion handler in the main queue, so the caller can modify Views
-                dispatch_async(dispatch_get_main_queue(), { 
-                    handler(imageData: imageData!)
-                })
+                handler(imageData: imageData!)
             }
         }
     }

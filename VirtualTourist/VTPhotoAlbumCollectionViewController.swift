@@ -106,18 +106,26 @@ class VTPhotoAlbumCollectionViewController : CoreDataCollectionViewController, U
                     let pin = workerContext.objectWithID(self.pin!.objectID) as! Pin
                     if let images = images {
                         for image in images {
-                            let photo = Photo(pin: pin, url_m: image["url_m"] as! String, context: workerContext)
+                            _ = Photo(pin: pin, url_m: image["url_m"] as! String, context: workerContext)
+                        }
+                        //Save photo data, so number of placeholders can be picked up from FRC
+                        self.coreDataStack.performBackgroundUpdate()
+                        for photo in pin.photos! {
+                            let photo = photo as! Photo
                             //Download each image
                             VTClient.sharedInstance.getImageFromFlickr(urlString: photo.url_m!, completionHandler: { (imageData) in
                                 //set image
                                 photo.img = imageData
                                 //Keep track of finished downloads
                                 self.downloads += 1
-                                //Check if all images have been downloaded
-                                self.checkDownloadsAreDone()
-                                //Save to backbround context, so the change shows up in the parent 
+                                //Save image, so the change shows up in the parent
                                 //(used by FRC to query the photos) and propagated to the view.
                                 self.coreDataStack.performBackgroundUpdate()
+                                //Check if all images have been downloaded
+                                //Run in main queue, as it updates UI
+                                dispatch_async(dispatch_get_main_queue(), {
+                                    self.checkDownloadsAreDone()
+                                })
                             })
                         }
                     }

@@ -10,7 +10,6 @@
 		733F6FA31D6232920059B62D /* VTPhotoAlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733F6FA21D6232920059B62D /* VTPhotoAlbumViewController.swift */; };
 		7342D4511D7CC3A5001BFA0A /* VTPhotoAlbumCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7342D4501D7CC3A5001BFA0A /* VTPhotoAlbumCollectionViewController.swift */; };
 		735024481D4FC22900C0B3DC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735024471D4FC22900C0B3DC /* AppDelegate.swift */; };
-		7350244A1D4FC22900C0B3DC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735024491D4FC22900C0B3DC /* ViewController.swift */; };
 		7350244D1D4FC22900C0B3DC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7350244B1D4FC22900C0B3DC /* Main.storyboard */; };
 		7350244F1D4FC22900C0B3DC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7350244E1D4FC22900C0B3DC /* Assets.xcassets */; };
 		735024521D4FC22900C0B3DC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 735024501D4FC22900C0B3DC /* LaunchScreen.storyboard */; };
@@ -52,7 +51,6 @@
 		7342D4501D7CC3A5001BFA0A /* VTPhotoAlbumCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VTPhotoAlbumCollectionViewController.swift; sourceTree = "<group>"; };
 		735024441D4FC22900C0B3DC /* VirtualTourist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VirtualTourist.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		735024471D4FC22900C0B3DC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		735024491D4FC22900C0B3DC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		7350244C1D4FC22900C0B3DC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7350244E1D4FC22900C0B3DC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		735024511D4FC22900C0B3DC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -133,7 +131,6 @@
 				735024771D4FC38B00C0B3DC /* Controller */,
 				73A1AE111D7CA6B800A677F8 /* Assets */,
 				735024471D4FC22900C0B3DC /* AppDelegate.swift */,
-				735024491D4FC22900C0B3DC /* ViewController.swift */,
 				735024531D4FC22900C0B3DC /* Info.plist */,
 			);
 			path = VirtualTourist;
@@ -344,7 +341,6 @@
 				735024791D4FC3C200C0B3DC /* VTMapViewController.swift in Sources */,
 				73FC4FD01D6E3C80009162B1 /* CoreDataStack.swift in Sources */,
 				735628071D6D197300E5C96D /* VirtualTouristModel.xcdatamodeld in Sources */,
-				7350244A1D4FC22900C0B3DC /* ViewController.swift in Sources */,
 				733F6FA31D6232920059B62D /* VTPhotoAlbumViewController.swift in Sources */,
 				735024481D4FC22900C0B3DC /* AppDelegate.swift in Sources */,
 			);
